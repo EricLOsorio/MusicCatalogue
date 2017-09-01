@@ -53,7 +53,7 @@ function buildTracksFragment(trackStoreObject,genTitle, loader){
 					  table.appendChild(thead);
 
 
-					  for(records in event.target.result){
+					  for(let records in event.target.result){
 
 					    let newTR=document.createElement(`TR`);
 					    let tdAlbumName=document.createElement(`TD`);
@@ -174,7 +174,7 @@ function buildTrackPage(){
 											  
 			    if (xreq.status === 200) {
 											        
-				  theJson=JSON.parse(xreq.response);
+				  let theJson=JSON.parse(xreq.response);
 				  resolve(theJson);
 
 			    };
@@ -188,7 +188,7 @@ function buildTrackPage(){
 			  }; 	
 
 			  //replace the urls with the track_url from the api results
-			  xreq.open(`GET`, `https://freemusicarchive.org/api/get/tracks.json?api_key=B4YJ52TYA91MI910&limit=3000&genre_id=${gen}&sort_by=album_id`);
+			  xreq.open(`GET`, `https://freemusicarchive.org/api/get/tracks.json?api_key=B4YJ52TYA91MI910&limit=100&genre_id=${gen}&sort_by=album_id`);
 			  xreq.setRequestHeader(`Accept`, `application/json`);
 			  xreq.send();
 
@@ -322,7 +322,7 @@ if(!document.cookie){
 				    // do something with the response
 				    if (xhr.status === 200) {
 				        //theString=xhr.responseText;
-				        theJson=JSON.parse(xhr.response);
+				        let theJson=JSON.parse(xhr.response);
 				        resolve(theJson);
 				    }
 
@@ -359,7 +359,7 @@ if(!document.cookie){
 				  let genresSpace=document.getElementsByClassName(`genres`)[0];
 				  let genresFragment=document.createDocumentFragment();
 
-				  for(records in event.target.result){
+				  for(let records in event.target.result){
 					let genreDiv=document.createElement(`DIV`);
 					let par=document.createElement(`A`);
 					let genreText0=event.target.result[records].genre_title;
