@@ -188,7 +188,7 @@ function buildTrackPage(){
 			  }; 	
 
 			  //replace the urls with the track_url from the api results
-			  xreq.open(`GET`, `https://freemusicarchive.org/api/get/tracks.json?api_key=B4YJ52TYA91MI910&limit=30&genre_id=${gen}&sort_by=album_id`);
+			  xreq.open(`GET`, `https://freemusicarchive.org/api/get/tracks.json?api_key=B4YJ52TYA91MI910&limit=100&genre_id=${gen}&sort_by=album_id`);
 			  xreq.setRequestHeader(`Accept`, `application/json`);
 			  xreq.send();
 
